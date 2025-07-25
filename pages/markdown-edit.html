@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>リアルタイム・マークダウンエディター</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
+  <link rel="icon" href="https://placehold.jp/80/3d4070/ffffff/150x150.png?text=.md" type="image/png">
+
+  <!-- 読み込みいろいろ --> 
+  <link rel="stylesheet" href="../styles/markdown-edit.css">
+    <script src="../scripts/markdown-edit.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>リアルタイム・マークダウンエディター</h1>
+      <p>左側で編集すると、右側にリアルタイムでプレビューが表示されます</p>
+    </div>
+    
+    <div class="toolbar">
+      <button onclick="insertText('# ')">H1</button>
+      <button onclick="insertText('## ')">H2</button>
+      <button onclick="insertText('**', '**')">Bold</button>
+      <button onclick="insertText('*', '*')">Italic</button>
+      <button onclick="insertText('`', '`')">Code</button>
+      <button onclick="insertText('- ')">List</button>
+      <button onclick="insertText('> ')">Quote</button>
+      <button onclick="insertText('[', '](url)')">Link</button>
+      <button onclick="clearEditor()">Clear</button>
+      <button onclick="saveToFile()">Export</button>
+      <div class="save-indicator" id="saveIndicator">保存しました</div>
+    </div>
+
+    <div class="editor-container">
+      <div class="editor-pane">
+        <div class="pane-header">
+          <span>マークダウン編集</span>
+        </div>
+        <textarea id="editor" placeholder="ここにマークダウンを入力してください...
+
+# 見出し1
+## 見出し2
+### 見出し3
+
+**太字** *斜体* `コード`
+
+- リスト項目1
+- リスト項目2
+- リスト項目3
+
+> 引用文
+
+[リンク](https://example.com)
+
+```javascript
+console.log('Hello, World!');
+```
+
+| 列1 | 列2 | 列3 |
+|-----|-----|-----|
+| A  | B  | C  |
+| D  | E  | F  |"></textarea>
+      </div>
+      
+      <div class="preview-pane">
+        <div class="pane-header">
+          <span>プレビュー</span>
+        </div>
+        <div id="preview">
+          <div class="empty-state">
+            <div>左側にマークダウンを入力すると、ここにプレビューが表示されます</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTMLエディター</title>
+  <link rel="icon" href="https://placehold.jp/0914aa/b5b5b5/150x150.png?text=%3C%2F%3E&css=%7B%22font-size%22%3A%22%20100px%22%2C%22border-radius%22%3A%22%2020px%22%7D" type="image/png">
+  <link rel="stylesheet" href="../styles/html-edit.css">
+  <script src="../scripts/markdown-edit.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <div class="title-bar">
+      <h1>HTMLエディター</h1>
+      <div class="title-controls">
+        <button class="theme-toggle" onclick="toggleTheme()">ダーク</button>
+        <button class="settings-btn" onclick="openSettings()">設定</button>
+      </div>
+    </div>
+    <div class="editor-container">
+      <div class="editor-panel" id="editorPanel">
+        <div class="file-tabs">
+          <div class="tab active">index.html</div>
+        </div>
+        <div class="toolbar">
+          <button onclick="insertTemplate()">テンプレート置き換え</button>
+        </div>
+        <div class="editor-wrapper">
+          <div class="line-numbers" id="lineNumbers"></div>
+          <textarea class="code-editor" id="codeEditor" placeholder="HTMLコードを入力してください..."></textarea>
+        </div>
+      </div>
+      <div class="resizer" id="resizer"></div>
+      <div class="preview-panel" id="previewPanel">
+        <div class="panel-header">
+          <span class="panel-title">プレビュー</span>
+        </div>
+        <iframe class="preview-frame" id="previewFrame"></iframe>
+      </div>
+    </div>
+    <div class="status-bar">
+      <div class="status-left">
+        <span>HTML</span>
+        <span>UTF-8</span>
+        <span id="themeStatus">ダークモード</span>
+      </div>
+      <div class="status-right">
+        <span>行 <span id="currentLine">1</span>, 列 <span id="currentCol">1</span></span>
+        <span>リアルタイム更新: ON</span>
+      </div>
+    </div>
+  </div>
+  <!-- 設定モーダル -->
+  <div class="settings-modal" id="settingsModal">
+    <div class="settings-content">
+      <div class="settings-header">
+        <h2 class="settings-title">設定</h2>
+        <button class="close-btn" onclick="closeSettings()">&times;</button>
+      </div>
+      <div class="settings-body">
+        <div class="setting-group">
+          <label class="setting-label">テーマ</label>
+          <select class="setting-select" id="themeSelect" onchange="changeTheme()">
+            <option value="dark">ダークテーマ</option>
+            <option value="light">ライトテーマ</option>
+          </select>
+        </div>
+        <div class="setting-group">
+          <label class="setting-label">フォントファミリー</label>
+          <select class="setting-select" id="fontFamily" onchange="updateSettings()">
+            <option value="'Consolas', 'Monaco', 'Courier New', monospace">Consolas</option>
+            <option value="'Fira Code', 'Cascadia Code', monospace">Fira Code</option>
+            <option value="'Source Code Pro', monospace">Source Code Pro</option>
+            <option value="'JetBrains Mono', monospace">JetBrains Mono</option>
+            <option value="'Roboto Mono', monospace">Roboto Mono</option>
+          </select>
+        </div>
+        <div class="setting-group">
+          <label class="setting-label">フォントサイズ</label>
+          <input type="range" class="setting-range" id="fontSize" min="10" max="24" value="14" onchange="updateSettings()">
+          <span class="range-value" id="fontSizeValue">14px</span>
+        </div>
+        <div class="setting-group">
+          <label class="setting-label">行間</label>
+          <input type="range" class="setting-range" id="lineHeight" min="1" max="2" step="0.1" value="1.5" onchange="updateSettings()">
+          <span class="range-value" id="lineHeightValue">1.5</span>
+        </div>
+        <div class="setting-group">
+          <label class="setting-label">エディタ幅 (%)</label>
+          <input type="range" class="setting-range" id="editorWidth" min="30" max="70" value="50" onchange="updateLayout()">
+          <span class="range-value" id="editorWidthValue">50%</span>
+        </div>
+        <div class="setting-group">
+          <label class="setting-checkbox">
+            <input type="checkbox" id="wordWrap" onchange="updateSettings()">
+            <span>行の折り返し</span>
+          </label>
+        </div>
+        <div class="setting-group">
+          <label class="setting-checkbox">
+            <input type="checkbox" id="autoSave" onchange="updateSettings()" checked>
+            <span>自動保存</span>
+          </label>
+        </div>
+        <div class="setting-group">
+          <label class="setting-checkbox">
+            <input type="checkbox" id="livePreview" onchange="updateSettings()" checked>
+            <span>リアルタイムプレビュー</span>
+          </label>
+        </div>
+      </div>
+      <div class="settings-actions">
+        <button class="btn btn-secondary" onclick="resetSettings()">リセット</button>
+        <button class="btn btn-primary" onclick="closeSettings()">完了</button>
+      </div>
+    </div>
+  </div>
+
+	<script src="script.js"></script>
+</body>
