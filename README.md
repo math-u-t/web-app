@@ -2,7 +2,7 @@
 
 [ツールのホーム](index.html)
 
-## [htmlエディター](pages/html-edit.html)
+## [htmlエディター](https://math-u-t.github.io/web-app/pages/html-edit.html)
 
 ### 機能
 
@@ -14,7 +14,7 @@
 
 - シンタックスハイライト機能があります。
 
-## [マークダウンエディター](pages/markdown-edit.html)
+## [マークダウンエディター](https://math-u-t.github.io/web-app/pages/markdown-edit.html)
 
 ### 機能
 
@@ -24,7 +24,7 @@
 
 - カラフルで見やすいはずです。
 
-## [音無しカメラ](pages/none-audio-camera.html)
+## [音無しカメラ](pages/https://math-u-t.github.io/web-app/pages/none-audio-camera.html.html)
 
 ### 機能
 
@@ -33,6 +33,8 @@
 - 撮影した写真は、ダウンロードできます。
 
 - **悪用しないでください。**
+
+- `safari`は音が無くならないみたいです。
 
 ## 注意事項
 
