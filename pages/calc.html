@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>暗黙の乗算対応 LaTeX計算ツール</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjs@12.4.1/lib/browser/math.min.js"></script>
+
+  <link rel="stylesheet" href="../styles/calc.css">
+  <script src="../scripts/calc.js" defer></script>
+</head>
+<body>
+  <h2>暗黙の乗算・初等関数対応 計算ツール</h2>
+
+  <div class="input-container">
+    <input type="text" id="mathInput" placeholder="例: 4(1+1) + sin(30 deg), ans * 3" />
+    <div id="liveResult"></div>
+  </div>
+
+  <div class="history" id="history"></div>
+  </script>
+</body>
+</html>

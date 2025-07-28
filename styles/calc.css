@@ -1,0 +1,41 @@
+body {
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+input {
+  width: 400px;
+  font-size: 1.2em;
+  padding: 8px;
+}
+
+#liveResult {
+  min-width: 300px;
+  font-size: 1.2em;
+  padding: 8px;
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  min-height: 1.5em;
+}
+
+.history {
+  margin-top: 30px;
+}
+
+.history-entry {
+  margin: 10px 0;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.history-entry.copied {
+  background: #d4f4dd;
+}

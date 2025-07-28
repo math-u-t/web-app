@@ -36,6 +36,18 @@
 
 - `safari`は音が無くならないみたいです。
 
+## [暗黙計算](pages/https://math-u-t.github.io/web-app/pages/calc.html.html)
+
+### 機能
+
+- 計算を自動化してくれます。
+
+- [desmos](https://www.desmos.com/scientific?lang=ja)みたいな機能
+
+- エンターキーで保存します。
+
+- 詳細は自分でやってみてください
+
 ## 注意事項
 
 - 全てChatGPT作です。
