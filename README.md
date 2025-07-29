@@ -24,7 +24,7 @@
 
 - カラフルで見やすいはずです。
 
-## [音無しカメラ](pages/https://math-u-t.github.io/web-app/pages/none-audio-camera.html.html)
+## [音無しカメラ](https://math-u-t.github.io/web-app/pages/none-audio-camera.html)
 
 ### 機能
 
@@ -36,7 +36,7 @@
 
 - `safari`は音が無くならないみたいです。
 
-## [暗黙計算](pages/https://math-u-t.github.io/web-app/pages/calc.html.html)
+## [暗黙計算](https://math-u-t.github.io/web-app/pages/calc.html)
 
 ### 機能
 
@@ -48,9 +48,15 @@
 
 - 詳細は自分でやってみてください
 
+## [QRコード読み取り](https://math-u-t.github.io/web-app/pages/qr-readerhtml)
+
+### 機能
+
+- ブラウザ上のQRコードを読み取れます。
+
 ## 注意事項
 
-- 全てChatGPT作です。
+- 全てChatGPTとClaude作です。
 
 ## © ライセンス
 

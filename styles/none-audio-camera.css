@@ -1,31 +1,114 @@
+/* 全体の背景グラデーション */
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #111;
+  justify-content: flex-start;
+  min-height: 100vh;
+  margin: 0;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   color: #fff;
-  font-family: sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
 }
 
-video,
-canvas {
-  margin-top: 20px;
-  border-radius: 10px;
-  max-width: 90vw;
+h1 {
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+  user-select: none;
+}
+
+/* 操作エリア 横並び */
+.controls {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  user-select: none;
+}
+
+label {
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+select {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #1f3a5f;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.3s ease;
+}
+
+select:hover,
+select:focus {
+  background-color: #305a8c;
+  outline: none;
 }
 
 button {
-  margin-top: 20px;
-  padding: 15px 30px;
+  padding: 12px 28px;
   font-size: 18px;
+  font-weight: 700;
+  border-radius: 10px;
   border: none;
-  border-radius: 8px;
-  background-color: #00c896;
+  background: #00c896;
   color: white;
   cursor: pointer;
-  transition: background 0.2s;
+  box-shadow: 0 6px 12px rgba(0, 200, 150, 0.6);
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+  user-select: none;
 }
 
 button:hover {
   background-color: #00a67e;
+  box-shadow: 0 8px 20px rgba(0, 166, 126, 0.8);
+}
+
+button:active {
+  background-color: #007651;
+  box-shadow: 0 4px 8px rgba(0, 118, 81, 0.8);
+  transform: translateY(2px);
+}
+
+/* videoとcanvasのスタイル */
+video {
+  border-radius: 14px;
+  max-width: 90vw;
+  max-height: 60vh;
+  background-color: #000;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  user-select: none;
+}
+
+canvas {
+  display: none;
+}
+
+/* 撮影ボタンは動画下に幅広で大きく */
+#snapBtn {
+  margin-top: 24px;
+  width: 220px;
+  align-self: center;
+}
+
+/* スマホなど小画面時にレスポンシブ */
+@media (max-width: 480px) {
+  .controls {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  #snapBtn {
+    width: 100%;
+  }
 }

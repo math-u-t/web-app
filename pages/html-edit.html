@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
   <link rel="stylesheet" href="../styles/html-edit.css">
   <script src="../scripts/html-edit.js" defer></script>
 </head>
+
 <body>
   <div class="container">
     <div class="title-bar">
@@ -26,16 +28,20 @@
           <button onclick="insertTemplate()">テンプレート置き換え</button>
         </div>
         <div class="editor-wrapper">
-          <div class="line-numbers" id="lineNumbers"></div>
-          <textarea class="code-editor" id="codeEditor" placeholder="HTMLコードを入力してください..."></textarea>
+          <div class="line-numbers" id="lineNumbers">
+          </div>
+          <textarea class="code-editor" id="codeEditor" placeholder="HTMLコードを入力してください...">
+          </textarea>
         </div>
       </div>
-      <div class="resizer" id="resizer"></div>
+      <div class="resizer" id="resizer">
+      </div>
       <div class="preview-panel" id="previewPanel">
         <div class="panel-header">
           <span class="panel-title">プレビュー</span>
         </div>
-        <iframe class="preview-frame" id="previewFrame"></iframe>
+        <iframe class="preview-frame" id="previewFrame">
+        </iframe>
       </div>
     </div>
     <div class="status-bar">
@@ -45,7 +51,10 @@
         <span id="themeStatus">ダークモード</span>
       </div>
       <div class="status-right">
-        <span>行 <span id="currentLine">1</span>, 列 <span id="currentCol">1</span></span>
+        <span>行
+          <span id="currentLine">1</span>, 列
+          <span id="currentCol">1</span>
+        </span>
         <span>リアルタイム更新: ON</span>
       </div>
     </div>
@@ -55,7 +64,7 @@
     <div class="settings-content">
       <div class="settings-header">
         <h2 class="settings-title">設定</h2>
-        <button class="close-btn" onclick="closeSettings()">&times;</button>
+        <button class="close-btn" onclick="closeSettings()">×</button>
       </div>
       <div class="settings-body">
         <div class="setting-group">
@@ -115,6 +124,6 @@
       </div>
     </div>
   </div>
-
-	<script src="script.js"></script>
 </body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>画面共有でQRコード読み取り</title>
+  <script src="https://cdn.jsdelivr.net/npm/jsqr/dist/jsQR.js" defer></script>
+  <!-- 読み込みいろいろ -->
+  <link rel="stylesheet" href="../styles/qr-reader.css">
+  <script src="../scripts/qr-reader.js" defer></script>
+</head>
+
+<body>
+  <h1>画面共有でQRコード読み取り</h1>
+  <button id="startButton">画面共有を開始</button>
+  <video id="video" autoplay muted playsinline>
+  </video>
+  <div id="outputCard" aria-live="polite">
+    <span id="outputIcon">📷</span>
+    <span id="outputText" class="empty">読み取り結果がここに表示されます</span>
+  </div>
+</body>
+
+</html>

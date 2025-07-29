@@ -1,0 +1,85 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f4f8;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  margin-bottom: 30px;
+  color: #004080;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#startButton {
+  background: #007bff;
+  border: none;
+  color: white;
+  padding: 16px 36px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 25px;
+}
+
+#startButton:hover {
+  background: #0056b3;
+  box-shadow: 0 6px 18px rgba(0, 86, 179, 0.6);
+}
+
+video {
+  width: 100%;
+  max-width: 640px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  background: black;
+}
+
+#outputCard {
+  margin-top: 20px;
+  max-width: 640px;
+  background: white;
+  border-radius: 12px;
+  padding: 20px 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  user-select: all;
+}
+
+#outputIcon {
+  font-size: 1.5rem;
+}
+
+#outputText {
+  flex-grow: 1;
+  word-break: break-word;
+}
+
+#outputText.empty {
+  color: #999;
+  font-style: italic;
+}
+
+/* スマホ対応 */
+@media (max-width: 700px) {
+  #startButton {
+    width: 90%;
+    font-size: 1rem;
+    padding: 14px 0;
+  }
+
+  video,
+  #outputCard {
+    max-width: 100%;
+  }
+}
