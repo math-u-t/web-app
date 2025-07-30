@@ -1,14 +1,23 @@
 // メモリ内データストレージ
 let savedContent = '';
 
+const STORAGE_KEY = 'markdownEditorContent';
+
+const container = document.getElementById('container');
 const editor = document.getElementById('editor');
 const preview = document.getElementById('preview');
 const saveIndicator = document.getElementById('saveIndicator');
+const resizer = document.getElementById('resizer');
+
+let isResizing = false;
 
 // 初期化
 document.addEventListener('DOMContentLoaded', function() {
   loadFromMemory();
   updatePreview();
+  // 初期の幅を設定（任意）
+  editor.style.width = '50%';
+  preview.style.width = '50%';
 });
 
 // リアルタイム更新
@@ -33,15 +42,18 @@ function updatePreview() {
   }
 }
 
-// メモリへ保存
+// メモリ & localStorageへ保存
 function saveToMemory() {
   savedContent = editor.value;
+  localStorage.setItem(STORAGE_KEY, savedContent);
   showSaveIndicator();
 }
 
-// メモリから読み込み
+// localStorageから読み込み
 function loadFromMemory() {
-  if (savedContent) {
+  const cached = localStorage.getItem(STORAGE_KEY);
+  if (cached) {
+    savedContent = cached;
     editor.value = savedContent;
   }
 }
@@ -96,7 +108,7 @@ function saveToFile() {
 // キーボードショートカット
 editor.addEventListener('keydown', function(e) {
   if (e.ctrlKey || e.metaKey) {
-    switch(e.key) {
+    switch(e.key.toLowerCase()) {
       case 'b':
         e.preventDefault();
         insertText('**', '**');
@@ -119,7 +131,31 @@ editor.addEventListener('keydown', function(e) {
   }
 });
 
-// ウィンドウサイズ変更時の調整
+// プレビューエリアのリサイズ機能
+resizer.addEventListener('mousedown', function(e) {
+  isResizing = true;
+  document.body.style.cursor = 'col-resize';
+});
+
+document.addEventListener('mousemove', function(e) {
+  if (!isResizing) return;
+  const containerRect = container.getBoundingClientRect();
+  let newEditorWidth = e.clientX - containerRect.left;
+  if (newEditorWidth < 100) newEditorWidth = 100; // 最小幅
+  if (newEditorWidth > containerRect.width - 100) newEditorWidth = containerRect.width - 100; // 最大幅
+  
+  editor.style.width = newEditorWidth + 'px';
+  preview.style.width = (containerRect.width - newEditorWidth - resizer.offsetWidth) + 'px';
+});
+
+document.addEventListener('mouseup', function(e) {
+  if (isResizing) {
+    isResizing = false;
+    document.body.style.cursor = 'default';
+  }
+});
+
+// ウィンドウサイズ変更時の調整（必要に応じて）
 window.addEventListener('resize', function() {
   updatePreview();
 });

@@ -1,0 +1,35 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  margin: 40px;
+}
+
+video {
+  width: 640px;
+  height: 360px;
+  background: black;
+  margin-top: 20px;
+}
+
+#fileName {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#volumeSlider {
+  width: 300px;
+  margin: 10px;
+}
+
+#dropZone {
+  border: 2px dashed #aaa;
+  padding: 20px;
+  margin-top: 20px;
+  color: #555;
+  background: #f9f9f9;
+}
+
+#dropZone.hover {
+  border-color: #00aaff;
+  background: #eefaff;
+}

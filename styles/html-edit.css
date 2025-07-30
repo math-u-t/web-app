@@ -13,6 +13,15 @@ body {
   transition: all 0.3s ease;
 }
 
+#lineNumbers {
+  white-space: pre;
+  text-align: right;
+  padding-right: 10px;
+  font-family: monospace;
+  user-select: none;
+  overflow: hidden;
+}
+
 :root {
   --bg-primary: #1e1e1e;
   --bg-secondary: #2d2d30;

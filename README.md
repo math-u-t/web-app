@@ -48,11 +48,23 @@
 
 - 詳細は自分でやってみてください
 
-## [QRコード読み取り](https://math-u-t.github.io/web-app/pages/qr-readerhtml)
+## [QRコード読み取り](https://math-u-t.github.io/web-app/pages/qr-reader.html)
 
 ### 機能
 
 - ブラウザ上のQRコードを読み取れます。
+
+## [BGMローダー](https://math-u-t.github.io/web-app/pages/bgm-loader.html)
+
+### 機能
+
+- オフラインでも、動画があれば使えます。
+
+- アップロードした動画を自動でローテーションしてくれます。
+
+- 外部との通信は一切しないので、ネットワーク費用の節約になります。
+
+- 音声調節機能、ドロップ＆ドラック機能があります。
 
 ## 注意事項
 
