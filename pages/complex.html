@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>任意の複素関数による画像変換</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js" defer></script>
+  <link rel="stylesheet" href="../styles/complex.css">
+  <script src="../scripts/complex.js" defer></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="title">任意の複素関数による画像変換</h1>
+    <div class="controls">
+      <div class="control-group">
+        <label>関数 w = f(z):</label>
+        <input type="text" id="functionInput" class="function-input" placeholder="1/z" value="1/z">
+      </div>
+      <div class="control-group">
+        <button id="applyFunction">適用</button>
+      </div>
+    </div>
+    <div class="preset-buttons">
+      <button class="preset-btn" data-func="1/z">1/z (逆数)</button>
+      <button class="preset-btn" data-func="z^2">z² (2乗)</button>
+      <button class="preset-btn" data-func="z^3">z³ (3乗)</button>
+      <button class="preset-btn" data-func="sqrt(z)">√z (平方根)</button>
+      <button class="preset-btn" data-func="exp(z)">e^z (指数)</button>
+      <button class="preset-btn" data-func="log(z)">log(z) (対数)</button>
+      <button class="preset-btn" data-func="sin(z)">sin(z) (正弦)</button>
+      <button class="preset-btn" data-func="z + 1/z">z + 1/z (ジューコフスキー)</button>
+    </div>
+    <div class="controls">
+      <div class="control-group">
+        <label>画像選択:</label>
+        <input type="file" id="imageInput" accept="image/*">
+      </div>
+      <div class="control-group">
+        <button id="generatePattern">パターン生成</button>
+      </div>
+      <div class="control-group">
+        <label>スケール:</label>
+        <input type="range" id="scaleSlider" min="0.1" max="3" value="1" step="0.1">
+        <span id="scaleValue">1.0</span>
+      </div>
+    </div>
+    <div id="errorMessage" class="error">
+    </div>
+    <div class="canvas-container">
+      <div class="canvas-wrapper">
+        <div class="canvas-title">元の画像 (z = x + yi)</div>
+        <canvas id="originalCanvas" width="400" height="400">
+        </canvas>
+      </div>
+      <div class="canvas-wrapper">
+        <div class="canvas-title">変換後の画像 (w = f(z))</div>
+        <canvas id="transformedCanvas" width="400" height="400">
+        </canvas>
+      </div>
+    </div>
+    <div class="explanation">
+      <div class="formula" id="currentFormula">w = 1/z</div>
+      <p>
+        <strong>使用可能な関数と記法：</strong>
+      </p>
+      <p>•
+        <strong>基本演算:</strong>+, -, *, /, ^ (べき乗)</p>
+      <p>•
+        <strong>複素関数:</strong>exp(z), log(z), sin(z), cos(z), tan(z), sqrt(z)</p>
+      <p>•
+        <strong>変数:</strong>z (複素変数), i (虚数単位)</p>
+      <p>•
+        <strong>定数:</strong>pi, e</p>
+      <p>•
+        <strong>例:</strong>z^2, 1/z, exp(i*z), z + 1/z, sin(z*pi)</p>
+      <p>
+        <strong>変換の仕組み：</strong>
+      </p>
+      <p>各ピクセルの座標 (x, y) を複素数 z = x + yi として扱い、入力された関数 f(z) で変換先座標を計算します。</p>
+    </div>
+  </div>
+</body>
+
+</html>
