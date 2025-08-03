@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>画面録画アプリ</title>
+  <!-- 読み込みいろいろ -->
+  <link rel="icon" href="https://placehold.jp/80/3d4070/ffffff/150x150.png?text=sc" type="image/png">
+  <link rel="stylesheet" href="../styles/screen-record.css">
+  <script src="../scripts/screen-record.js" defer></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>🎥 画面録画アプリ</h1>
+    <div class="controls">
+      <div class="audio-control">
+        <span class="audio-label">🎵 音声録音</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="audioToggle" checked>
+          <span class="slider">
+          </span>
+        </label>
+      </div>
+      <div class="button-container">
+        <button id="startBtn" class="btn btn-start">📹 録画開始</button>
+        <button id="stopBtn" class="btn btn-stop" disabled>⏹️ 録画停止</button>
+      </div>
+    </div>
+    <div class="preview-container">
+      <video id="preview" controls autoplay muted>
+      </video>
+      <div class="status-indicator" id="statusIndicator">
+        <span class="recording-dot">
+        </span>録画中...</div>
+    </div>
+    <div class="info-box">💡
+      <strong>使い方:</strong>「録画開始」ボタンをクリックして録画したい画面を選択してください。録画が完了すると自動的にファイルがダウンロードされます。</div>
+  </div>
+</body>
+
+</html>
