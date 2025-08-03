@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>モダンペイントエディター</title>
+  
+  <!-- 読み込みいろいろ -->
+  <link rel="icon" href="https://placehold.jp/80/3d4070/ffffff/150x150.png?text=pe" type="image/png">
+  <link rel="stylesheet" href="../styles/paint-edit.css">
+  <script src="../scripts/paint-edit.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🎨 モダンペイントエディター</h1>
+    </div>
+
+    <div class="editor-wrapper">
+      <div class="toolbar">
+        <div class="file-input-wrapper">
+          <input type="file" id="fileInput" class="file-input" accept="image/*" />
+          <label for="fileInput" class="file-input-label">
+            📁 画像を選択
+          </label>
+        </div>
+
+        <div class="control-group">
+          <span class="control-label">色:</span>
+          <input type="color" id="colorPicker" class="color-picker" value="#3b82f6" />
+        </div>
+
+        <div class="control-group">
+          <span class="control-label">太さ:</span>
+          <input type="range" id="sizeRange" class="size-slider" min="1" max="50" value="5" />
+          <span id="sizeDisplay" class="size-display">5</span>
+        </div>
+
+        <div class="button-group">
+          <button id="penBtn" class="btn active" aria-pressed="true">
+            ✏️ ペン
+          </button>
+          <button id="eraserBtn" class="btn" aria-pressed="false">
+            🧹 消しゴム
+          </button>
+        </div>
+
+        <div class="button-group">
+          <button id="undoBtn" class="btn secondary">
+            ↶ 戻る
+          </button>
+          <button id="redoBtn" class="btn secondary">
+            ↷ やり直し
+          </button>
+        </div>
+
+        <div class="button-group">
+          <button id="resetBtn" class="btn warning">
+            🔄 リセット
+          </button>
+          <button id="downloadBtn" class="btn success">
+            💾 ダウンロード
+          </button>
+        </div>
+      </div>
+
+      <div class="canvas-container">
+        <canvas id="canvas" class="canvas" width="800" height="600"></canvas>
+      </div>
+
+      <div class="status-bar">
+        <div>キャンバスサイズ: <span id="canvasSize">800 × 600</span></div>
+        <div class="zoom-info">ズーム: <span id="zoomLevel">100%</span></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
